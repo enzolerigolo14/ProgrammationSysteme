@@ -59,7 +59,7 @@ float rechercher_moyenne(const char *nom, const char *prenom, int indice_matiere
 // Fonction de gestion client (appelée par un thread)
 void *gerer_client(void *arg) {
     int client_fd = *(int *)arg;
-    free(arg); // Libère la mémoire allouée pour client_fd
+    free(arg); 
 
     Requete requete;
     if (read(client_fd, &requete, sizeof(requete)) <= 0) {
@@ -114,7 +114,7 @@ int main() {
     printf("Serveur en attente de connexions...\n");
 
     while (1) {
-        int *client_fd = malloc(sizeof(int)); // Alloue dynamiquement de la mémoire pour chaque client_fd
+        int *client_fd = malloc(sizeof(int)); 
         *client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &client_len);
         if (*client_fd == -1) {
             perror("Erreur lors de l'acceptation");
@@ -130,7 +130,7 @@ int main() {
             close(*client_fd);
             free(client_fd);
         } else {
-            pthread_detach(thread_id); // Libère automatiquement les ressources après la fin du thread
+            pthread_detach(thread_id); 
         }
     }
 

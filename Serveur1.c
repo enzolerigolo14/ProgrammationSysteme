@@ -30,11 +30,7 @@ int nombre_etudiants = 2;
 int compare_chaines(const char* str1, const char* str2) {
     while (*str1 && *str2) {
         if (tolower(*str1 )!= tolower(*str2)) {
-<<<<<<< HEAD
             return 0; 
-=======
-            return 0; // Les chaînes sont différentes
->>>>>>> 10de13cad0effaa47fd16dc94ed0e7f47100a68e
         }
         str1++;
         str2++;
@@ -69,13 +65,8 @@ int main() {
     }
 
     server_addr.sin_family = AF_INET;
-<<<<<<< HEAD
     server_addr.sin_addr.s_addr = INADDR_ANY; 
     server_addr.sin_port = htons(12345);      
-=======
-    server_addr.sin_addr.s_addr = INADDR_ANY; // Écoute sur toutes les interfaces
-    server_addr.sin_port = htons(12345);      // Port d'écoute
->>>>>>> 10de13cad0effaa47fd16dc94ed0e7f47100a68e
 
     if (bind(server_fd, (struct sockaddr*)&server_addr, sizeof(server_addr)) == -1) {
         perror("Erreur lors du bind");
@@ -99,10 +90,7 @@ int main() {
         }
         printf("Client connecté\n");
 
-<<<<<<< HEAD
-=======
         // Réception de la requête
->>>>>>> 10de13cad0effaa47fd16dc94ed0e7f47100a68e
         Requete requete;
         if (read(client_fd, &requete, sizeof(requete)) <= 0) {
             perror("Erreur lors de la réception de la requête");
